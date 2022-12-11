@@ -2,30 +2,62 @@
 <html>
 <head>
     <title>Human Body</title>
+    <style>
+        /* Style the image to fill the page */
+        #body-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Style the dropdown menu */
+        #body-parts {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 30px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
     <img src="http://www.clipartbest.com/cliparts/9cR/bze/9cRbzexgi.jpg" alt="Human Body" id="body-image">
     <select id="body-parts">
+        <option value="">Select a body part...</option>
         <option value="head">Head</option>
         <option value="torso">Torso</option>
         <option value="arms">Arms</option>
         <option value="legs">Legs</option>
     </select>
     <script>
-    // Get the dropdown menu and image elements
-    var dropdown = document.getElementById("body-parts");
-    var image = document.getElementById("body-image");
+        // Get the image and dropdown menu elements
+        var image = document.getElementById("body-image");
+        var dropdown = document.getElementById("body-parts");
 
-    // Listen for when the user makes a selection
-    dropdown.addEventListener("change", function() {
-      // Get the value of the selected option
-      var selected = this.value;
+        // Listen for when the user clicks on the image
+        image.addEventListener("click", function (event) {
+            // Calculate the x and y coordinates of the click relative to the image
+            var x = event.offsetX;
+            var y = event.offsetY;
 
-      // Update the image to highlight the selected body part
-      image.style.border = "5px solid blue";
-      image.style["object-position"] = selected + " center";
+            // Determine which body part the user clicked on
+            var bodyPart = "";
+            if (x < 200 && y < 200) {
+                bodyPart = "head";
+            } else if (x > 200 && x < 400 && y > 200 && y < 400) {
+                bodyPart = "torso";
+            } else
+            if (x < 200 && y > 200) {
+                bodyPart = "arms";
+            } else if (x > 200 && x < 400 && y > 400) {
+                bodyPart = "legs";
+            }
+
+        // Update the dropdown menu to show the selected body part
+        dropdown.value = bodyPart;
     });
-    </script>
-</body>
 
+</script>
+</body>
 </html>
