@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Website</title>
+    <title>Human Body</title>
 </head>
 <body>
-  <h1>Kiropraktor Documentering</h1>
-  <p>Detta är en test!</p>
-  <img src="http://www.clipartbest.com/cliparts/9cR/bze/9cRbzexgi.jpg" alt="image">
+    <img src="http://www.clipartbest.com/cliparts/9cR/bze/9cRbzexgi.jpg" alt="Human Body" id="body-image">
+    <select id="body-parts">
+        <option value="head">Head</option>
+        <option value="torso">Torso</option>
+        <option value="arms">Arms</option>
+        <option value="legs">Legs</option>
+    </select>
+    <script>
+    // Get the dropdown menu and image elements
+    var dropdown = document.getElementById("body-parts");
+    var image = document.getElementById("body-image");
+
+    // Listen for when the user makes a selection
+    dropdown.addEventListener("change", function() {
+      // Get the value of the selected option
+      var selected = this.value;
+
+      // Update the image to highlight the selected body part
+      image.style.border = "5px solid blue";
+      image.style["object-position"] = selected + " center";
+    });
+    </script>
 </body>
+
 </html>
