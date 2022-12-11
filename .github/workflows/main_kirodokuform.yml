@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'Kirodokuform'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A6724551DDE84A86BFE0622A40D159C3 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9C03C00426E34205B0C79E0B8E76489C }}
           package: .
